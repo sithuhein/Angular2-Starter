@@ -20,7 +20,7 @@ import { CustomersComponent } from 'app/components/customers/customers'
 
 @Component({
   selector: 'customers-app',
-  appInjector: [Router]
+  hostInjector: [Router]
 })
 @View({
   template: `<router-outlet></router-outlet>`,

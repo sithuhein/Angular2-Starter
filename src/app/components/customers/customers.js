@@ -8,7 +8,7 @@ import { DataService } from 'app/components/services/dataService';
 
 @Component({
   selector: 'customers',
-  appInjector: [DataService]
+  hostInjector: [DataService]
 })
 @View({
   templateUrl: 'app/components/customers/customers.html',
