@@ -1,6 +1,7 @@
 import {
   ComponentAnnotation as Component, 
   ViewAnnotation as View, 
+  InjectAnnotation as Inject,
   bootstrap
 } from 'angular2/angular2';
 
@@ -26,16 +27,15 @@ import { CustomersComponent } from 'app/components/customers/customers'
   directives: [RouterOutlet]
 })
 export class App {
-  constructor(router: Router) {
+  constructor(router:Router) {
     this.router = router;
-    router
-      .config([
-        { path: '/home', component: CustomersComponent }
-      ]);
+    router.config([
+        { "path": "/home", "component": CustomersComponent }
+    ]);
   }
 }
 
 
-bootstrap(App, routerInjectables, [
+bootstrap(App, [routerInjectables,
   bind(PipeRegistry).toValue(new PipeRegistry(pipes))
 ]);

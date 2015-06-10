@@ -3,6 +3,7 @@ import {
   ViewAnnotation as View, 
   NgFor
 } from 'angular2/angular2';
+
 import { DataService } from 'app/components/services/dataService';
 
 @Component({
