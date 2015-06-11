@@ -15,12 +15,12 @@ import { bind } from 'angular2/di';
 import { PipeRegistry } from 'angular2/change_detection';
 
 import { pipes } from 'app/components/pipes/pipes';
-import { CustomersComponent } from 'app/components/customers/customers'
+import { CustomersComponent } from 'app/components/customers/customers';
+import { OrdersComponent } from 'app/components/orders/orders';
 
 
 @Component({
-  selector: 'customers-app',
-  hostInjector: [Router]
+  selector: 'customers-app'
 })
 @View({
   template: `<router-outlet></router-outlet>`,
@@ -28,14 +28,14 @@ import { CustomersComponent } from 'app/components/customers/customers'
 })
 export class App {
   constructor(router:Router) {
-    this.router = router;
     router.config([
-        { "path": "/home", "component": CustomersComponent }
+        { path: '/',       as: 'customers', component: CustomersComponent },
+        { path: '/orders', as: 'orders',    component: OrdersComponent }
     ]);
   }
 }
 
-
+//Bootstrap App
 bootstrap(App, [routerInjectables,
   bind(PipeRegistry).toValue(new PipeRegistry(pipes))
 ]);
