@@ -10,19 +10,30 @@
 <html>
 <head>
     <title>Angular App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Angular 2 ES6 Starter">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">        
-        <h1>Angular 2 ES6 Starter</h1>       
-        <customers-app>
-          Just a moment...    
-        </customers-app>
+        <h1>Angular 2 ES6 Starter</h1>    
+           
+        <app>
+            Loading...    
+        </app>
+        
     </div>
     
     <script src="//jspm.io/system.js"></script>
     <script src="//code.angularjs.org/2.0.0-alpha.26/angular2.dev.js"></script>
-    <script src="//code.angularjs.org/2.0.0-alpha.26/router.dev.js"></script>
+    <!--
+        <script src="//code.angularjs.org/2.0.0-alpha.26/angular2.dev.js"></script> 
+          
+        Following script is a temporary patch file due to router-link bug in onAllChangesDone() 
+    -->
+    <script src="js/libs/angular2-alpha26.router.patch.js"></script>
     <script src="config.js"></script>
     <script>
         System.import('app/app');

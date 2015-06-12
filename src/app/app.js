@@ -1,41 +1,40 @@
-import {
-  ComponentAnnotation as Component, 
-  ViewAnnotation as View, 
-  InjectAnnotation as Inject,
-  bootstrap
-} from 'angular2/angular2';
-
-import { 
-  Router,
-  RouterOutlet,
-  routerInjectables
-} from 'angular2/router';
-
+import { ComponentAnnotation as Component, ViewAnnotation as View, bootstrap, coreDirectives } from 'angular2/angular2';
+import { RouteConfig, RouterOutlet, Router, routerInjectables } from 'angular2/router';
+import { BrowserLocation } from 'angular2/src/router/browser_location';
 import { bind } from 'angular2/di';
 import { PipeRegistry } from 'angular2/change_detection';
-
-import { pipes } from 'app/components/pipes/pipes';
-import { CustomersComponent } from 'app/components/customers/customers';
-import { OrdersComponent } from 'app/components/orders/orders';
+import { customPipes } from 'app/components/pipes/pipes';
+import { Customers } from 'app/components/customers/customers';
+import { Orders } from 'app/components/orders/orders';
 
 
 @Component({
-  selector: 'customers-app'
+  selector: 'app'
 })
 @View({
+  directives: [RouterOutlet],
   template: `<router-outlet></router-outlet>`,
-  directives: [RouterOutlet]
 })
+@RouteConfig([
+  { path: '/',        as: 'customers',  component: Customers },
+  { path: '/orders',  as: 'orders',     component: Orders    }
+])
 export class App {
-  constructor(router:Router) {
-    router.config([
-        { path: '/',       as: 'customers', component: CustomersComponent },
-        { path: '/orders', as: 'orders',    component: OrdersComponent }
-    ]);
+  constructor(router:Router, browserLocation: BrowserLocation) {
+    // this.router = router;
+    // router.config([
+    //     { path: '/',       as: 'customers', component: CustomersComponent },
+    //     { path: '/orders', as: 'orders',    component: OrdersComponent }
+    // ]);
+    
+    //Manual navigation for now
+    let url = browserLocation.path();
+    router.navigate(url);
   }
 }
 
 //Bootstrap App
-bootstrap(App, [routerInjectables,
-  bind(PipeRegistry).toValue(new PipeRegistry(pipes))
+bootstrap(App, [
+  routerInjectables,
+  bind(PipeRegistry).toValue(new PipeRegistry(customPipes))
 ]);

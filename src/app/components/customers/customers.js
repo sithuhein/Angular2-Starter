@@ -1,10 +1,5 @@
-import {
-  ComponentAnnotation as Component, 
-  ViewAnnotation as View, 
-  NgFor
-} from 'angular2/angular2';
+import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
 import { RouterLink } from 'angular2/router';
-
 import { DataService } from 'app/components/services/dataService';
 
 @Component({
@@ -15,10 +10,10 @@ import { DataService } from 'app/components/services/dataService';
   templateUrl: 'app/components/customers/customers.html',
   directives: [NgFor, RouterLink]
 })
-export class CustomersComponent {
-    constructor(dataService: DataService) {
-      this.title = 'Customers';
-      this.customers = dataService.getCustomers();  
-    }
+export class Customers {
+  constructor(dataService: DataService) {
+    this.title = 'Customers';
+    this.customers = dataService.getCustomers();  
+  }
 }
 
