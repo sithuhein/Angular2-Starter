@@ -13,7 +13,7 @@ import { DataService } from 'app/components/services/dataService';
 export class Customers {
   constructor(dataService: DataService) {
     this.title = 'Customers';
-    this.customers = dataService.getCustomers();  
+    this.customers = dataService.getCustomers();
   }
 }
 

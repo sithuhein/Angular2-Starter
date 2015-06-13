@@ -10,10 +10,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ng-for="#cust of customers;#idx = index">
+            <tr *ng-for="#cust of customers">
                 <td>{{ cust.firstName  }}</td>
                 <td>{{ cust.lastName }}</td>
-                <td>{{ cust.orderTotal | currency:'test' }}</td>
+                <td>{{ cust.orderTotal | currency }}</td>
                 <td><a href="#" router-link="orders" router-params="">View Orders</a></td>
             </tr>
         </tbody>
