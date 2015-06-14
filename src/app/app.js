@@ -22,7 +22,7 @@ export class App {
   constructor(router: Router, browserLocation: BrowserLocation) {
     this.router = router;
     router.config([
-        { path: '/customers', as: 'customers', component: Customers },
+        { path: '/', as: 'customers', component: Customers },
         { path: '/orders', as: 'orders', component: Orders }
     ]);
 

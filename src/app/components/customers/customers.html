@@ -1,16 +1,19 @@
 <h3>{{ title }}</h3>
+
+<filter-textbox (changed)="filterChanged($event)"></filter-textbox>
+
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Total</th>
+                <th (click)="sort('firstName')">First Name</th>
+                <th (click)="sort('lastName')">Last Name</th>
+                <th (click)="sort('orderTotal')">Total</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ng-for="#cust of customers">
+            <tr *ng-for="#cust of filteredCustomers">
                 <td>{{ cust.firstName  }}</td>
                 <td>{{ cust.lastName }}</td>
                 <td>{{ cust.orderTotal | currency }}</td>
