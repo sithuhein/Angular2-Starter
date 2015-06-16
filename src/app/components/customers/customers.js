@@ -3,6 +3,7 @@ import { RouterLink } from 'angular2/router';
 import { DataService } from 'app/components/services/dataService';
 import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
 import { Sorter } from 'app/utils/sorter';
+import { SortBy } from 'app/components/sortBy/sortBy';
 
 @Component({
   selector: 'customers',
@@ -10,7 +11,7 @@ import { Sorter } from 'app/utils/sorter';
 })
 @View({
   templateUrl: 'app/components/customers/customers.html',
-  directives: [NgFor, RouterLink, FilterTextbox]
+  directives: [NgFor, RouterLink, FilterTextbox, SortBy]
 })
 export class Customers {
   constructor(dataService: DataService) {
@@ -26,7 +27,7 @@ export class Customers {
         let filtered = this.customers.filter(item => {
             let match = false;
             for (let prop of props) {
-                console.log(item[prop] + ' ' + item[prop].toUpperCase().indexOf(data));
+                //console.log(item[prop] + ' ' + item[prop].toUpperCase().indexOf(data));
                 if (item[prop].toUpperCase().indexOf(data) > -1) {
                   match = true;
                   break;
@@ -41,8 +42,8 @@ export class Customers {
     }
   }
 
-  sort(key) {
-      this.sorter.sort(this.filteredCustomers, key);
+  sort(prop) {
+      this.sorter.sort(this.filteredCustomers, prop);
   }
 
 }

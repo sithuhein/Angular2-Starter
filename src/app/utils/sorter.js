@@ -2,23 +2,23 @@
 export class Sorter {
 
     constructor(){
-        this.key = null;
+        this.property = null;
         this.direction = 1;
     }
 
-    sort(collection, key) {
-        this.key = key;
-        this.direction = (this.key === key) ? this.direction * -1 : 1;
+    sort(collection, prop) {
+        this.property = prop;
+        this.direction = (this.property === prop) ? this.direction * -1 : 1;
 
         collection.sort((a,b) => {
-            if(a[key] === b[key]){
+            if(a[prop] === b[prop]){
                 return 0;
             }
-            else if (a[key] > b[key]){
-                return this.direction * 1;
+            else if (a[prop] > b[prop]){
+                return this.direction * -1;
             }
             else {
-                return this.direction * -1;
+                return this.direction * 1;
             }
         });
     }

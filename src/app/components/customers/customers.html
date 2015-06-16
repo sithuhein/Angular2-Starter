@@ -1,13 +1,14 @@
 <h3>{{ title }}</h3>
-
-<filter-textbox (changed)="filterChanged($event)"></filter-textbox>
-
+<br />
+<filter-textbox labelText="Customer Filter" (changed)="filterChanged($event)"></filter-textbox>
+<br />
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th (click)="sort('firstName')">First Name</th>
-                <th (click)="sort('lastName')">Last Name</th>
+                <th sort-by="firstName" (sorted)="sort($event)">First Name</th>
+                <th sort-by="lastName" (sorted)="sort($event)">Last Name</th>
+                <!-- Or can do this directly rather than using sort-by directive -->
                 <th (click)="sort('orderTotal')">Total</th>
                 <th>&nbsp;</th>
             </tr>
