@@ -1,9 +1,17 @@
 import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
 import { Router, RouterLink } from 'angular2/router';
-import { DataService } from 'app/services/dataService';
+import { DataService } from 'app/components/services/dataService';
 import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
 import { Sorter } from 'app/utils/sorter';
 import { SortBy } from 'app/components/sortBy/sortBy';
+
+interface ICustomer {
+    id: number;
+    firstName: string;
+    lastName: string;
+    address: string;
+    orderTotal: number;
+}
 
 @Component({
   selector: 'customers',
@@ -15,17 +23,21 @@ import { SortBy } from 'app/components/sortBy/sortBy';
 })
 
 export class Customers {
-  constructor(router: Router, dataService: DataService) {
-    this.router = router;
+
+  title: string;
+  customers: Array<ICustomer>;
+
+  constructor(private router: Router, dataService: DataService) {
     this.title = 'Customers';
     this.customers = this.filteredCustomers = [];
+    this.sorter = new Sorter();
+
     dataService.getCustomers().map(res => res.json()).subscribe(custs => {
         this.customers = this.filteredCustomers = custs;
     });
-    this.sorter = new Sorter();
   }
 
-  filterChanged(data) {
+  filterChanged(data: string) {
     if (data) {
         data = data.toUpperCase();
         let props = ['firstName', 'lastName', 'address', 'orderTotal'];

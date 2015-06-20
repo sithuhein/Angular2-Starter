@@ -10,9 +10,13 @@ import { DataService } from 'app/services/dataService';
   templateUrl: 'app/components/orders/orders.html',
   directives: [NgFor, RouterLink]
 })
+
 export class Orders {
+
+    title: string;
+
     constructor(dataService: DataService) {
       this.title = 'Orders';
-      //this.orders = dataService.getOrders();
     }
+
 }
