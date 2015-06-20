@@ -28,12 +28,12 @@ export class Customers {
   filterChanged(data) {
     if (data) {
         data = data.toUpperCase();
-        let props = ['firstName', 'lastName', 'address'];
+        let props = ['firstName', 'lastName', 'address', 'orderTotal'];
         let filtered = this.customers.filter(item => {
             let match = false;
             for (let prop of props) {
                 //console.log(item[prop] + ' ' + item[prop].toUpperCase().indexOf(data));
-                if (item[prop].toUpperCase().indexOf(data) > -1) {
+                if (item[prop].toString().toUpperCase().indexOf(data) > -1) {
                   match = true;
                   break;
                 }
