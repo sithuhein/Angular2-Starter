@@ -6,7 +6,7 @@ relies on System.js to load ES6 modules.
 
 Simply clone the project or download and extract the .zip to get started.
 
-# Angular 2 Concepts Covered
+## Angular 2 Concepts Covered
 
 * ES6 and TypeScript Version of the Application
 * ES6 Module loading with System.js
@@ -19,7 +19,7 @@ Simply clone the project or download and extract the .zip to get started.
 * Working with Utility classes (such as for sorting)
 * Using the New Databinding Syntax [] and ()
 
-# Usage
+## Usage
 
 1. Install global dependencies **if necessary**
 
