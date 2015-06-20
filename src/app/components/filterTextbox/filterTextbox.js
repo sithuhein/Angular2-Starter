@@ -11,7 +11,7 @@ import { EventEmitter } from 'angular2/src/facade/async';
 @View({
   template: `
     <form>
-         {{ labelText }}:
+         Filter:
          <input type="text" ng-control="filter"
                 [(ng-model)]="model.filter" (keyup)="filterChanged($event)"  />
     </form>
@@ -24,7 +24,6 @@ export class FilterTextbox {
       this.model = {
         filter: null
       };
-      this.labelText = 'Filter';
       this.changed = new EventEmitter();
     }
 
@@ -34,7 +33,7 @@ export class FilterTextbox {
     }
 
     onChange(changes) {
-      alert(changes);
+      //alert(changes);
     }
 
 }

@@ -6,6 +6,7 @@ import { PipeRegistry } from 'angular2/change_detection';
 import { pipes } from 'app/components/pipes/pipes';
 import { Customers } from 'app/components/customers/customers';
 import { Orders } from 'app/components/orders/orders';
+import { httpInjectables } from 'angular2/http';
 
 @Component({
   selector: 'app'
@@ -14,26 +15,26 @@ import { Orders } from 'app/components/orders/orders';
   directives: [RouterOutlet],
   template: `<router-outlet></router-outlet>`
 })
-// @RouteConfig([
-//   { path: '/',        as: 'customers',  component: Customers },
-//   { path: '/orders',  as: 'orders',     component: Orders    }
-// ])
+@RouteConfig([
+  { path: '/',  redirectTo: '/customers' },
+  { path: '/customers', as: 'customers',  component: Customers },
+  { path: '/orders',    as: 'orders',     component: Orders    }
+])
+
 export class App {
   constructor(router: Router, browserLocation: BrowserLocation) {
     this.router = router;
-    router.config([
-        { path: '/', as: 'customers', component: Customers },
-        { path: '/orders', as: 'orders', component: Orders }
-    ]);
 
     //Manual navigation for now
     let url = browserLocation.path();
-    router.navigate('/customers');
+    router.navigate(url);
   }
 }
 
 //Bootstrap App
 bootstrap(App, [
-  routerInjectables,
-  bind(PipeRegistry).toValue(new PipeRegistry(pipes))
+    httpInjectables,
+    routerInjectables,
+    //Hook custom pipe into the PipeRegistry
+    bind(PipeRegistry).toValue(new PipeRegistry(pipes))
 ]);

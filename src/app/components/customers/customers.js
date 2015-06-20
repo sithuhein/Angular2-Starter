@@ -1,5 +1,5 @@
 import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
-import { RouterLink } from 'angular2/router';
+import { Router, RouterLink } from 'angular2/router';
 import { DataService } from 'app/components/services/dataService';
 import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
 import { Sorter } from 'app/utils/sorter';
@@ -13,17 +13,22 @@ import { SortBy } from 'app/components/sortBy/sortBy';
   templateUrl: 'app/components/customers/customers.html',
   directives: [NgFor, RouterLink, FilterTextbox, SortBy]
 })
+
 export class Customers {
-  constructor(dataService: DataService) {
+  constructor(router: Router, dataService: DataService) {
+    this.router = router;
     this.title = 'Customers';
-    this.filteredCustomers = this.customers = dataService.getCustomers();
+    this.customers = this.filteredCustomers = [];
+    dataService.getCustomers().map(res => res.json()).subscribe(custs => {
+        this.customers = this.filteredCustomers = custs;
+    });
     this.sorter = new Sorter();
   }
 
   filterChanged(data) {
     if (data) {
         data = data.toUpperCase();
-        let props = ['firstName', 'lastName'];
+        let props = ['firstName', 'lastName', 'address'];
         let filtered = this.customers.filter(item => {
             let match = false;
             for (let prop of props) {
