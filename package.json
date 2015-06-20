@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular2": "^2.0.0-alpha.27",
-    "systemjs": "^0.18.1"
+    "systemjs": "^0.18.1",
+    "typescript": "^1.5.0-beta"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

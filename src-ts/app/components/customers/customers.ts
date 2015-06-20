@@ -1,6 +1,6 @@
 import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
 import { Router, RouterLink } from 'angular2/router';
-import { DataService } from 'app/components/services/dataService';
+import { DataService } from 'app/services/dataService';
 import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
 import { Sorter } from 'app/utils/sorter';
 import { SortBy } from 'app/components/sortBy/sortBy';
