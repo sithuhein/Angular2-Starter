@@ -1,6 +1,6 @@
-# Angular 2 ES6/TypeScript Starter
+# Angular 2 Starter
 
-The goal of this ES6/TypeScript starter app is to provide
+The goal of this starter app is to provide
 a simple way to get started with Angular 2 while also showing key Angular 2 features. The sample
 relies on System.js to load ES6 modules.
 
@@ -8,7 +8,8 @@ Simply clone the project or download and extract the .zip to get started.
 
 ## Angular 2 Concepts Covered
 
-* ES6 and TypeScript Version of the Application
+* ES6 Version of the Application
+* *TypeScript version coming soon*
 * ES6 Module loading with System.js
 * Defining routes and using router-outlet (router-link currently isn't working so only 1 view is shown for now)
 * Building Custom Pipes
