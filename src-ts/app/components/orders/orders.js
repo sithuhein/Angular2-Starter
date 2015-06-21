@@ -17,11 +17,11 @@ var Orders = (function () {
         this.title = 'Orders';
     }
     Orders = __decorate([
-        angular2_1.ComponentAnnotation({
+        angular2_1.Component({
             selector: 'orders',
             hostInjector: [dataService_1.DataService]
         }),
-        angular2_1.ViewAnnotation({
+        angular2_1.View({
             templateUrl: 'app/components/orders/orders.html',
             directives: [angular2_1.NgFor, router_1.RouterLink]
         }), 

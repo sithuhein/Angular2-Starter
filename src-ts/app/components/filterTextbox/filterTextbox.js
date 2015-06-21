@@ -27,13 +27,13 @@ var FilterTextbox = (function () {
         //alert(changes);
     };
     FilterTextbox = __decorate([
-        angular2_1.ComponentAnnotation({
+        angular2_1.Component({
             selector: 'filter-textbox',
             events: ['changed'],
             properties: { labelText: 'labelText' },
             lifecycle: [angular2_1.onChange]
         }),
-        angular2_1.ViewAnnotation({
+        angular2_1.View({
             template: "\n    <form>\n         Filter:\n         <input type=\"text\" ng-control=\"filter\"\n                [(ng-model)]=\"model.filter\" (keyup)=\"filterChanged($event)\"  />\n    </form>\n  ",
             directives: [forms_1.formDirectives]
         }), 

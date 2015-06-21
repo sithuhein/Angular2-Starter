@@ -23,7 +23,7 @@ var SortBy = (function () {
         this.sorted.next(this.sortProperty); //Raise clicked event
     };
     SortBy = __decorate([
-        angular2_1.DirectiveAnnotation({
+        angular2_1.Directive({
             selector: '[sort-by]',
             events: ['sorted']
         }), 

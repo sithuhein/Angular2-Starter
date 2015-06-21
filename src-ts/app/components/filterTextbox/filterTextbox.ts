@@ -1,4 +1,4 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, onChange } from 'angular2/angular2';
+import { Component, View, onChange } from 'angular2/angular2';
 import { formDirectives } from 'angular2/forms';
 import { EventEmitter } from 'angular2/src/facade/async';
 

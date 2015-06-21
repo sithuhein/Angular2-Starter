@@ -1,4 +1,4 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
+import { Component, View, NgFor } from 'angular2/angular2';
 import { Router, RouterLink } from 'angular2/router';
 import { DataService } from 'app/services/dataService';
 import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
@@ -26,6 +26,8 @@ export class Customers {
 
   title: string;
   customers: Array<ICustomer>;
+  sorter: Sorter;
+  filteredCustomers: any[];
 
   constructor(private router: Router, dataService: DataService) {
     this.title = 'Customers';
