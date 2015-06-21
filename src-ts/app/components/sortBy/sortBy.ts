@@ -1,4 +1,4 @@
-import { DirectiveAnnotation as Directive, ElementRef } from 'angular2/angular2';
+import { Directive, ElementRef } from 'angular2/angular2';
 import { EventEmitter } from 'angular2/src/facade/async';
 
 @Directive({

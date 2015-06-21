@@ -1,3 +1,6 @@
+/// <references path="../node_modules/angular2/angular2.d.ts" />
+/// <references path="../node_modules/angular2/http.d.ts" />
+/// <references path="../node_modules/angular2/router.d.ts" />
 if (typeof __decorate !== "function") __decorate = function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -20,15 +23,17 @@ var http_1 = require('angular2/http');
 var App = (function () {
     function App(router, browserLocation) {
         this.router = router;
+        this.browserLocation = browserLocation;
+        this.router = router;
         //Manual navigation for now
-        var url = browserLocation.path();
+        var url = this.browserLocation.path();
         router.navigate(url);
     }
     App = __decorate([
-        angular2_1.ComponentAnnotation({
+        angular2_1.Component({
             selector: 'app'
         }),
-        angular2_1.ViewAnnotation({
+        angular2_1.View({
             directives: [router_1.RouterOutlet],
             template: "<router-outlet></router-outlet>"
         }),

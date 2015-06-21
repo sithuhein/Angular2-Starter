@@ -1,4 +1,4 @@
-import { Pipe } from 'angular2/change_detection';
+import { Pipe } from 'angular2/angular2';
 
 export class CurrencyPipe extends Pipe {
 

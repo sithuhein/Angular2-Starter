@@ -53,11 +53,11 @@ var Customers = (function () {
         this.sorter.sort(this.filteredCustomers, prop);
     };
     Customers = __decorate([
-        angular2_1.ComponentAnnotation({
+        angular2_1.Component({
             selector: 'customers',
             hostInjector: [dataService_1.DataService]
         }),
-        angular2_1.ViewAnnotation({
+        angular2_1.View({
             templateUrl: 'app/components/customers/customers.html',
             directives: [angular2_1.NgFor, router_1.RouterLink, filterTextbox_1.FilterTextbox, sortBy_1.SortBy]
         }), 

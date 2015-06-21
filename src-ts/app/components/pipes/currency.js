@@ -4,6 +4,7 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+var angular2_1 = require('angular2/angular2');
 var CurrencyPipe = (function (_super) {
     __extends(CurrencyPipe, _super);
     function CurrencyPipe() {
@@ -23,6 +24,6 @@ var CurrencyPipe = (function (_super) {
         return this;
     };
     return CurrencyPipe;
-})(Pipe);
+})(angular2_1.Pipe);
 exports.CurrencyPipe = CurrencyPipe;
 //# sourceMappingURL=currency.js.map

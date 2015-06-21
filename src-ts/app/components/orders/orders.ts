@@ -1,4 +1,4 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
+import { Component, View, NgFor } from 'angular2/angular2';
 import { RouterLink } from 'angular2/router';
 import { DataService } from 'app/services/dataService';
 
