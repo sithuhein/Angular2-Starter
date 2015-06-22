@@ -5,15 +5,16 @@ import { EventEmitter } from 'angular2/src/facade/async';
 @Component({
   selector: 'filter-textbox',
   events: ['changed'],
-  properties: {labelText: 'labelText'},
+  properties: {text: 'text'},
   lifecycle: [onChange]
 })
 @View({
   template: `
     <form>
          Filter:
-         <input type="text" ng-control="filter"
-                [(ng-model)]="model.filter" (keyup)="filterChanged($event)"  />
+         <input type="text" 
+                [(ng-model)]="model.filter" 
+                (keyup)="filterChanged($event)"  />
     </form>
   `,
   directives: [formDirectives]

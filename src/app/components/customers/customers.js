@@ -19,6 +19,7 @@ export class Customers {
   constructor(router: Router, dataService: DataService) {
     this.router = router;
     this.title = 'Customers';
+    this.filterText = 'Filter Customers:';
     this.listDisplayModeEnabled = false;
     this.displayModeEnum = {
       Card: 0,
