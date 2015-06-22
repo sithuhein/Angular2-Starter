@@ -15,20 +15,39 @@ import { SortBy } from 'app/components/sortBy/sortBy';
 })
 
 export class Customers {
+  
   constructor(router: Router, dataService: DataService) {
     this.router = router;
     this.title = 'Customers';
+    this.listDisplayModeEnabled = false;
+    this.displayModeEnum = {
+      Card: 0,
+      List: 1
+    };
     this.customers = this.filteredCustomers = [];
+    
     dataService.getCustomers().map(res => res.json()).subscribe(custs => {
         this.customers = this.filteredCustomers = custs;
     });
+    
     this.sorter = new Sorter();
   }
+
+  changeDisplayMode = function (displayMode) {
+      switch (displayMode) {
+          case this.displayModeEnum.Card:
+              this.listDisplayModeEnabled = false;
+              break;
+          case this.displayModeEnum.List:
+              this.listDisplayModeEnabled = true;
+              break;
+      }
+  };
 
   filterChanged(data) {
     if (data) {
         data = data.toUpperCase();
-        let props = ['firstName', 'lastName', 'address', 'orderTotal'];
+        let props = ['firstName', 'lastName', 'address', 'city', 'orderTotal'];
         let filtered = this.customers.filter(item => {
             let match = false;
             for (let prop of props) {
@@ -45,6 +64,10 @@ export class Customers {
     else {
       this.filteredCustomers = this.customers;
     }
+  }
+  
+  deleteCustomer(id) {
+    
   }
 
   sort(prop) {
