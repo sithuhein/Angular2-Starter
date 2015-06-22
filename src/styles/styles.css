@@ -185,6 +185,10 @@ a.navbar-brand {
     background-color: #fafafa;
 }
 
+footer {
+    margin-top: 10px;
+}
+
 .navbar-inner.footer {
     background-color: #fafafa;
     -webkit-box-shadow: none;
