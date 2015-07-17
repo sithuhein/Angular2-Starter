@@ -11,14 +11,14 @@ Simply clone the project or download and extract the .zip to get started.
 * ES6 Version of the Application
 * *TypeScript version coming soon*
 * ES6 Module loading with System.js
-* Defining routes and using router-outlet (router-link currently isn't working so only 1 view is shown for now)
+* Defining routes and using router-outlet
 * Building Custom Pipes
 * Using Custom Components
 * Using Custom Directives
 * Defining Properties and Using Events in Components/Directives
 * Using the Http object for Ajax calls
 * Working with Utility classes (such as for sorting)
-* Using the New Databinding Syntax [] and ()
+* Using the New Databinding Syntax [], () and [()]
 
 ## Usage
 
