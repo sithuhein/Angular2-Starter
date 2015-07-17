@@ -1,5 +1,5 @@
 import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
-import { Router, RouterLink } from 'angular2/router';
+import { ObservableWrapper } from 'angular2/src/facade/async';
 import { DataService } from 'app/services/dataService';
 import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
 import { Sorter } from 'app/utils/sorter';
@@ -11,13 +11,12 @@ import { SortBy } from 'app/components/sortBy/sortBy';
 })
 @View({
   templateUrl: 'app/components/customers/customers.html',
-  directives: [NgFor, RouterLink, FilterTextbox, SortBy]
+  directives: [NgFor, FilterTextbox, SortBy]
 })
 
 export class Customers {
   
-  constructor(router: Router, dataService: DataService) {
-    this.router = router;
+  constructor(dataService: DataService) {
     this.title = 'Customers';
     this.filterText = 'Filter Customers:';
     this.listDisplayModeEnabled = false;
@@ -27,8 +26,8 @@ export class Customers {
     };
     this.customers = this.filteredCustomers = [];
     
-    dataService.getCustomers().map(res => res.json()).subscribe(custs => {
-        this.customers = this.filteredCustomers = custs;
+    ObservableWrapper.subscribe(dataService.getCustomers(), res => {
+        this.customers = this.filteredCustomers = res.json();
     });
     
     this.sorter = new Sorter();

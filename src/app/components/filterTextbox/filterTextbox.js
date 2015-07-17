@@ -5,7 +5,7 @@ import { EventEmitter } from 'angular2/src/facade/async';
 @Component({
   selector: 'filter-textbox',
   events: ['changed'],
-  properties: {text: 'text'},
+  properties: ['text'],
   lifecycle: [onChange]
 })
 @View({

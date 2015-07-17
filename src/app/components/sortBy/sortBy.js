@@ -8,8 +8,8 @@ import { EventEmitter } from 'angular2/src/facade/async';
 export class SortBy {
 
     constructor(el: ElementRef) {
-      this.sortProperty = el.getAttribute('sort-by');
-      el.domElement.addEventListener('click', (event) => this.elementClicked(event));
+      this.sortProperty = el.nativeElement.getAttribute('sort-by');
+      el.nativeElement.addEventListener('click', (event) => this.elementClicked(event));
       this.sorted = new EventEmitter();
     }
 
