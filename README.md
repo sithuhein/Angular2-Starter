@@ -39,3 +39,9 @@ Simply clone the project or download and extract the .zip to get started.
 
 4. Open a browser and navigate to the site/port shown by Superstatic. 
 If you use the live reload option then a browser will automatically be displayed and any changes to files will cause it to reload.
+
+
+**Note:** 
+
+Bundling isn't used in this project since the overall goal is to provide a starter project for people interested in
+playing around with an early version of Angular 2.
