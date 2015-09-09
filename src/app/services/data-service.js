@@ -1,5 +1,4 @@
-import { ComponentAnnotation as Component } from 'angular2/angular2';
-import { Http } from 'angular2/http';
+import { Http } from 'http/http';
 
 export class DataService {
 

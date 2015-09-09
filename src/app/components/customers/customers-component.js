@@ -1,20 +1,17 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
-import { ObservableWrapper } from 'angular2/src/facade/async';
-import { DataService } from 'app/services/dataService';
-import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
+import { Component, View, NgFor } from 'angular2/angular2';
+import { DataService } from 'app/services/data-service';
+import { FilterTextboxComponent } from 'app/components/filter-textbox/filter-textbox-component';
 import { Sorter } from 'app/utils/sorter';
-import { SortBy } from 'app/components/sortBy/sortBy';
+import { SortByDirective } from 'app/directives/sortby/sortby-directive';
+import { ObservableWrapper } from 'angular2/src/facade/async';
+import { Inject } from 'angular2/angular2';
 
-@Component({
-  selector: 'customers',
-  hostInjector: [DataService]
-})
+@Component({ selector: 'customers' , bindings: [DataService] })
 @View({
-  templateUrl: 'app/components/customers/customers.html',
-  directives: [NgFor, FilterTextbox, SortBy]
+  templateUrl: 'app/components/customers/customers-component.html',
+  directives: [NgFor, FilterTextboxComponent, SortByDirective]
 })
-
-export class Customers {
+export class CustomersComponent {
   
   constructor(dataService: DataService) {
     this.title = 'Customers';
@@ -33,7 +30,7 @@ export class Customers {
     this.sorter = new Sorter();
   }
 
-  changeDisplayMode = function (displayMode) {
+  changeDisplayMode(displayMode) {
       switch (displayMode) {
           case this.displayModeEnum.Card:
               this.listDisplayModeEnabled = false;
@@ -42,7 +39,7 @@ export class Customers {
               this.listDisplayModeEnabled = true;
               break;
       }
-  };
+  }
 
   filterChanged(data) {
     if (data) {
@@ -75,4 +72,5 @@ export class Customers {
   }
 
 }
+
 
