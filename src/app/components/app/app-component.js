@@ -1,7 +1,7 @@
 import { Component, View } from 'angular2/angular2';
 import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
-import { CustomersComponent } from '/app/components/customers/customers-component';
-import { OrdersComponent } from 'app/components/orders/orders-component';
+import { CustomersComponent } from '../customers/customers-component';
+import { OrdersComponent } from '../orders/orders-component';
 import { DataService } from 'app/services/data-service';
 
 @Component({ selector: 'app' })

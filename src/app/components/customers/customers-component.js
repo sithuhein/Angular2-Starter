@@ -1,10 +1,10 @@
 import { Component, View, NgFor } from 'angular2/angular2';
-import { DataService } from 'app/services/data-service';
-import { FilterTextboxComponent } from 'app/components/filter-textbox/filter-textbox-component';
-import { Sorter } from 'app/utils/sorter';
-import { SortByDirective } from 'app/directives/sortby/sortby-directive';
 import { ObservableWrapper } from 'angular2/src/facade/async';
 import { Inject } from 'angular2/angular2';
+import { DataService } from '../../services/data-service';
+import { Sorter } from '../../utils/sorter';
+import { FilterTextboxComponent } from '../filter-textbox/filter-textbox-component';
+import { SortByDirective } from '../../directives/sortby/sortby-directive';
 
 @Component({ selector: 'customers' , bindings: [DataService] })
 @View({
@@ -17,7 +17,7 @@ export class CustomersComponent {
     this.title = 'Customers';
     this.filterText = 'Filter Customers:';
     this.listDisplayModeEnabled = false;
-    this.displayModeEnum = {
+    this.displayMode = {
       Card: 0,
       List: 1
     };
@@ -32,10 +32,10 @@ export class CustomersComponent {
 
   changeDisplayMode(displayMode) {
       switch (displayMode) {
-          case this.displayModeEnum.Card:
+          case this.displayMode.Card:
               this.listDisplayModeEnabled = false;
               break;
-          case this.displayModeEnum.List:
+          case this.displayMode.List:
               this.listDisplayModeEnabled = true;
               break;
       }

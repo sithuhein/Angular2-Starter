@@ -15,7 +15,7 @@ System.config({
     "types": true
   },
   typescriptOptions: {
-    "target": "ES6",
+    "target": "ES5",
     "module": "system",
     "emitDecoratorMetadata": true
   },

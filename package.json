@@ -5,7 +5,8 @@
   "author": "Dan Wahlin",
   "license": "ISC",
   "scripts": {
-    "start": ""
+    "tsd": "tsd reinstall --resolve --overwrite --config src/tsd.json",
+    "tsc": "tsc -p src -w"
   },
   "jspm": {
     "directories": {
