@@ -4,7 +4,7 @@ The goal of this starter app is to provide
 a simple way to get started with Angular 2 while also showing key Angular 2 features. The sample
 relies on JSPM/System.js to load ES6 modules and the required scripts used in the application.
 
-The sample is based on Angular Alpha 36.
+The sample is based on Angular Alpha 37.
 
 Simply clone the project or download and extract the .zip to get started.
 
