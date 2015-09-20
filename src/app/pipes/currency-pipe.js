@@ -1,10 +1,7 @@
-import { Pipe } from 'angular2/change_detection';
+import { Pipe } from 'angular2/angular2';
 
-export class CurrencyPipe extends Pipe {
-
-  supports(obj) {
-      return true;
-  }
+@Pipe({ name: 'currency' })
+export class CurrencyPipe {
 
   transform(value) {
       if (value && !isNaN(value)) {
@@ -13,7 +10,4 @@ export class CurrencyPipe extends Pipe {
       return '$0.00';
   }
 
-  create() {
-      return this;
-  }
 }

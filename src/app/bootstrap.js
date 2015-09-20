@@ -11,6 +11,9 @@ bootstrap(AppComponent, [
     FORM_BINDINGS,
     HTTP_BINDINGS,
     bind(LocationStrategy).toClass(HashLocationStrategy)
-]);
+]).then(
+    success => console.log('App bootstrapped!'),
+    error => console.log(error)
+);
 
 

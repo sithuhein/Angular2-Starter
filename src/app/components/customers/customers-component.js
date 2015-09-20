@@ -5,11 +5,13 @@ import { DataService } from '../../services/data-service';
 import { Sorter } from '../../utils/sorter';
 import { FilterTextboxComponent } from '../filter-textbox/filter-textbox-component';
 import { SortByDirective } from '../../directives/sortby/sortby-directive';
+import { CurrencyPipe } from '../../pipes/currency-pipe';
 
 @Component({ selector: 'customers' , bindings: [DataService] })
 @View({
   templateUrl: 'app/components/customers/customers-component.html',
-  directives: [NgFor, FilterTextboxComponent, SortByDirective]
+  directives: [NgFor, FilterTextboxComponent, SortByDirective],
+  pipes: [CurrencyPipe]
 })
 export class CustomersComponent {
 
