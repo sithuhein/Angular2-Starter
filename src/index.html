@@ -34,14 +34,14 @@
             </div>
         </nav>
     </header>
-    
+
     <main class="container">
         <app>
             Loading...
         </app>
         <br /><br />
     </main>
-    
+
     <footer>
         <div class="navbar navbar-fixed-bottom">
             <div class="navbar-inner footer">
@@ -57,11 +57,11 @@
             </div>
         </div>
     </footer>
- 
+
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script>
-        System.import('app/bootstrap');
+        System.import('app/bootstrap').catch(console.log.bind(console));
     </script>
   </body>
 </html>

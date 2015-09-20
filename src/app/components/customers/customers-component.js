@@ -1,5 +1,5 @@
 import { Component, View, NgFor } from 'angular2/angular2';
-import { ObservableWrapper } from 'angular2/src/facade/async';
+import { ObservableWrapper } from 'angular2/src/core/facade/async';
 import { Inject } from 'angular2/angular2';
 import { DataService } from '../../services/data-service';
 import { Sorter } from '../../utils/sorter';
@@ -12,7 +12,7 @@ import { SortByDirective } from '../../directives/sortby/sortby-directive';
   directives: [NgFor, FilterTextboxComponent, SortByDirective]
 })
 export class CustomersComponent {
-  
+
   constructor(dataService: DataService) {
     this.title = 'Customers';
     this.filterText = 'Filter Customers:';
@@ -22,11 +22,11 @@ export class CustomersComponent {
       List: 1
     };
     this.customers = this.filteredCustomers = [];
-    
+
     ObservableWrapper.subscribe(dataService.getCustomers(), res => {
         this.customers = this.filteredCustomers = res.json();
     });
-    
+
     this.sorter = new Sorter();
   }
 
@@ -62,9 +62,9 @@ export class CustomersComponent {
       this.filteredCustomers = this.customers;
     }
   }
-  
+
   deleteCustomer(id) {
-    
+
   }
 
   sort(prop) {
