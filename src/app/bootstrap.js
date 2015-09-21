@@ -12,7 +12,7 @@ bootstrap(AppComponent, [
     HTTP_BINDINGS,
     bind(LocationStrategy).toClass(HashLocationStrategy)
 ]).then(
-    success => console.log('App bootstrapped!'),
+    success => console.log('AppComponent bootstrapped!'),
     error => console.log(error)
 );
 
