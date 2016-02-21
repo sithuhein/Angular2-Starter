@@ -1,12 +1,12 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, onChange } from 'angular2/angular2';
-import { formDirectives } from 'angular2/forms';
-import { EventEmitter } from 'angular2/src/facade/async';
+import { Component, View, LifecycleEvent, EventEmitter } from 'angular2/angular2';
+import { FORM_DIRECTIVES } from 'angular2/forms';
+
 
 @Component({
   selector: 'filter-textbox',
   events: ['changed'],
   properties: ['text'],
-  lifecycle: [onChange]
+  lifecycle: [LifecycleEvent.onChange]
 })
 @View({
   template: `
@@ -17,9 +17,9 @@ import { EventEmitter } from 'angular2/src/facade/async';
                 (keyup)="filterChanged($event)"  />
     </form>
   `,
-  directives: [formDirectives]
+  directives: [FORM_DIRECTIVES]
 })
-export class FilterTextbox {
+export class FilterTextboxComponent {
 
     constructor() {
       this.model = {

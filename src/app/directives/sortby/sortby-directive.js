@@ -1,11 +1,10 @@
-import { DirectiveAnnotation as Directive, ElementRef } from 'angular2/angular2';
-import { EventEmitter } from 'angular2/src/facade/async';
+import { Directive, ElementRef, EventEmitter } from 'angular2/angular2';
 
 @Directive({
   selector: '[sort-by]',
   events: ['sorted']
 })
-export class SortBy {
+export class SortByDirective {
 
     constructor(el: ElementRef) {
       this.sortProperty = el.nativeElement.getAttribute('sort-by');

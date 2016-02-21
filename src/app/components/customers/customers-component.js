@@ -1,48 +1,47 @@
-import { ComponentAnnotation as Component, ViewAnnotation as View, NgFor } from 'angular2/angular2';
-import { ObservableWrapper } from 'angular2/src/facade/async';
-import { DataService } from 'app/services/dataService';
-import { FilterTextbox } from 'app/components/filterTextbox/filterTextbox';
-import { Sorter } from 'app/utils/sorter';
-import { SortBy } from 'app/components/sortBy/sortBy';
+import { Component, View, NgFor } from 'angular2/angular2';
+import { ObservableWrapper } from 'angular2/src/core/facade/async';
+import { Inject } from 'angular2/angular2';
+import { DataService } from '../../services/data-service';
+import { Sorter } from '../../utils/sorter';
+import { FilterTextboxComponent } from '../filter-textbox/filter-textbox-component';
+import { SortByDirective } from '../../directives/sortby/sortby-directive';
+import { CurrencyPipe } from '../../pipes/currency-pipe';
 
-@Component({
-  selector: 'customers',
-  hostInjector: [DataService]
-})
+@Component({ selector: 'customers' , bindings: [DataService] })
 @View({
-  templateUrl: 'app/components/customers/customers.html',
-  directives: [NgFor, FilterTextbox, SortBy]
+  templateUrl: 'app/components/customers/customers-component.html',
+  directives: [NgFor, FilterTextboxComponent, SortByDirective],
+  pipes: [CurrencyPipe]
 })
+export class CustomersComponent {
 
-export class Customers {
-  
   constructor(dataService: DataService) {
     this.title = 'Customers';
     this.filterText = 'Filter Customers:';
     this.listDisplayModeEnabled = false;
-    this.displayModeEnum = {
+    this.displayMode = {
       Card: 0,
       List: 1
     };
     this.customers = this.filteredCustomers = [];
-    
+
     ObservableWrapper.subscribe(dataService.getCustomers(), res => {
         this.customers = this.filteredCustomers = res.json();
     });
-    
+
     this.sorter = new Sorter();
   }
 
-  changeDisplayMode = function (displayMode) {
+  changeDisplayMode(displayMode) {
       switch (displayMode) {
-          case this.displayModeEnum.Card:
+          case this.displayMode.Card:
               this.listDisplayModeEnabled = false;
               break;
-          case this.displayModeEnum.List:
+          case this.displayMode.List:
               this.listDisplayModeEnabled = true;
               break;
       }
-  };
+  }
 
   filterChanged(data) {
     if (data) {
@@ -65,9 +64,9 @@ export class Customers {
       this.filteredCustomers = this.customers;
     }
   }
-  
+
   deleteCustomer(id) {
-    
+
   }
 
   sort(prop) {
@@ -75,4 +74,5 @@ export class Customers {
   }
 
 }
+
 
